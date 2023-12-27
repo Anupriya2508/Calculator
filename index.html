@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Calculator </title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <h1> Calculator<i id="calc-icon" class="fa fa-calculator"></i></h1> <!-- I have used font-awesome icons and Id for icon-->
+  
+  <div class="row">
+    <div class="column">
+      <div class="formstyle">
+        <form name="form1"  autocomplete="on"> <!-- I have used autocomplete attribute -->
+          <input id="calc" type="text" name="answer" placeholder="Enter the expression" minlength="1"> <br> <br>  <!--Here I have used the placeholder and minimum length attribute--> 
+
+          <!-- I have used name and id attribute for all input tags-->
+          <input type="button" value="1" name="1button" id="button1" onclick="appendToExpression('1')">
+          <input type="button" value="2" name="2button" id="button2" onclick="appendToExpression('2')">
+          <input type="button" value="3" name="3button" id="button3" onclick="appendToExpression('3')">
+          <input type="button" value="+" name="+button" id="button+" onclick="appendToExpression('+')">
+          <br> <br>
+
+          <input type="button" value="4" name="4button" id="button4" onclick="appendToExpression('4')">
+          <input type="button" value="5" name="5button" id="button5" onclick="appendToExpression('5')">
+          <input type="button" value="6" name="6button" id="button6" onclick="appendToExpression('6')">
+          <input type="button" value="-" name="-button" id="button-" onclick="appendToExpression('-')">
+          <br> <br>
+
+          <input type="button" value="7" name="7button" id="button7" onclick="appendToExpression('7')">
+          <input type="button" value="8" name="8button" id="button8" onclick="appendToExpression('8')">
+          <input type="button" value="9" name="9button" id="button9" onclick="appendToExpression('9')">
+          <input type="button" value="*" name="*button" id="button*" onclick="appendToExpression('*')">
+          <br> <br>
+
+          <input type="button" value="/" name="/button" id="button/" onclick="appendToExpression('/')">
+          <input type="button" value="0" name="0button" id="button0" onclick="appendToExpression('0')">
+          <input type="button" value="." name=".button" id="button." onclick="appendToExpression('.')">
+
+          <input type="button" value="=" name="=button" id="equals" onclick="calculateResult()">
+          <br>
+
+          <input type="button" name="clear" id="clear1" value="Clear" onclick="clearLastDigit()" id="clearLast"><br>
+          <br>
+        </form>
+      </div>
+    </div>
+    <div class="column">
+      <div id="history">
+        Calculation History:
+      </div>
+    </div>
+  </div>
+  <script>
+    var calculationHistory = [];
+    var maxHistoryLength = 10;
+
+    function appendToExpression(value) {
+      form1.answer.value += value;
+    }
+
+    function clearLastDigit() {
+      var currentValue = form1.answer.value;
+      form1.answer.value = currentValue.slice(0, -1);
+    }
+
+    function calculateResult() {
+      var expression = form1.answer.value;
+      try {
+        var result = eval(expression);
+        if(result=='Infinity'){
+          throw "diverror";
+        }
+        addToCalculationHistory(expression, result);
+        form1.answer.value = result;
+      } catch (error) {
+        if(error=="diverror"){
+          form1.answer.value = 'Error';
+        }
+        form1.answer.value = 'Error';
+      }
+    }
+
+    function addToCalculationHistory(expression, result) {
+      calculationHistory.unshift({ expression, result });
+      if (calculationHistory.length > maxHistoryLength) {
+        calculationHistory.pop();
+      }
+      updateCalculationHistoryDisplay();
+    }
+
+    function updateCalculationHistoryDisplay() {
+      var historyDiv = document.getElementById('history');
+      historyDiv.innerHTML = 'Calculation History:<br>';
+      for (var i = 0; i < calculationHistory.length; i++) {
+        historyDiv.innerHTML += `${calculationHistory[i].expression} = ${calculationHistory[i].result}<br>`;
+      }
+    }
+
+  </script>
+</body>
+
+</html>
