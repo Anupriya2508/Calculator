@@ -26,7 +26,7 @@ This project is a simple calculator web application implemented using HTML, CSS,
 
 ## Demo
 
-![Calculator Demo]
+Calculator Demo:
 
 ![Screenshot (1080)](https://github.com/Anupriya2508/Calculator/assets/89139657/46f72096-65f0-4b3e-b515-b0ba0358f20d)
 
@@ -35,7 +35,7 @@ This project is a simple calculator web application implemented using HTML, CSS,
 ![Screenshot (1082)](https://github.com/Anupriya2508/Calculator/assets/89139657/61413897-13df-42f8-8b0c-3afa5891a7c3)
 
 
-[Live Demo](https://anupriya2508.github.io/Calculator/](https://calculator-ashen-seven.vercel.app/)
+Live Demo: (https://anupriya2508.github.io/Calculator/](https://calculator-ashen-seven.vercel.app/)
 
 ## Getting Started
 
