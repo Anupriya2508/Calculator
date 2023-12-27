@@ -60,9 +60,9 @@ View the calculation history on the right side.
 The project includes a stylesheet (index.css) that provides a visually appealing and responsive design. Styles are defined for the calculator buttons, input field, and history display.
 
 ## Technologies Used
-HTML
-CSS
-JavaScript
-Font Awesome (for icons)
+- HTML
+- CSS
+- JavaScript
+- Font Awesome (for icons)
 ## Contributors
 Anupriya2508
