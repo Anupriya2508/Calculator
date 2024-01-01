@@ -48,7 +48,7 @@ Live Demo: (https://calculator-ashen-seven.vercel.app/)
 1. Clone the repository:
    ```bash
    git clone https://github.com/Anupriya2508/Calculator.git
-   ``  
+   ```
 Open index.html in your preferred web browser.
 ## Usage
 Enter an arithmetic expression in the input field.
